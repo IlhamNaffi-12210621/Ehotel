@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'db_ehotel',
+        'database' => 'db_latihan',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
