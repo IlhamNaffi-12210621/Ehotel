@@ -26,6 +26,6 @@ class Kamartarif extends Migration
 
     public function down()
     {
-        $this->forge-droptable('kamartarif');
+        $this->forge->droptable('kamartarif');
     }
 }

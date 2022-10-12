@@ -14,6 +14,7 @@ class Pemesananstatus extends Migration
             'urutan'        =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
             'aktif'     =>['type'=>'enum("Y", "T")', 'null'=>true],
         ]);
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('pemesananstatus');
     }
 
