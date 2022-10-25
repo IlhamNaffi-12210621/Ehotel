@@ -6,14 +6,18 @@ use Agoenxz21\Datatables\Datatable;
 use App\Controllers\BaseController;
 use App\Models\PenggunahotelModel;
 use CodeIgniter\Email\Email;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use Config\Email as ConfigEmail;
+use PhpParser\Node\Stmt\Return_;
 
 class PenggunahotelController extends BaseController
 {
         public function login()
         {
-            $password      = $this->request->getPost('sandi');
-            $pengguna   = (new PenggunahotelModel())->where('email, $email')->first();
+            $email      = $this->request->getPost('email');
+            $password   = $this->request->getPost('sandi');
+            
+            $pengguna   = (new PenggunahotelModel())->where('email', $email)->first();
             
             if($pengguna == null){
                 return $this->response->setJSON(['message'=>'Email tidak terdaftar'])
@@ -31,18 +35,19 @@ class PenggunahotelController extends BaseController
             ->setStatusCode(200);
         }
         
-        public function viewlogin(){
+        public function viewLogin(){
             return view('login');
         }
         
         public function lupaPassword()
         {       
-            $email         = $this->request->getPost('email');
-            $pengguna   = (new PenggunahotelModel())->where('email, $_email')->first();
+            $_email         = $this->request->getPost('email');
+           
+            $pengguna   = (new PenggunahotelModel())->where('email', $_email)->first();
             
             if($pengguna == null){
                 return $this->response->setJSON(['message'=>'Email tidak terdaftar'])
-                ->setStatusCode(404);
+                            ->setStatusCode(404);
             }
 
             $sandibaru         = substr( md5( date('Y-m-dH:i:s')),5,5 );
@@ -62,10 +67,10 @@ class PenggunahotelController extends BaseController
             $r = $email->send();
 
             if($r == true){
-                    return $this->response->setJSON(['message'=>"Sandi baru sudah di kirim ke alamat email $email"])
+                    return $this->response->setJSON(['message'=>"Sandi baru sudah di kirim ke alamat email $_email"])
                                 ->setStatusCode(200);
             }else{
-                    return $this->response->setJSON(['message'=>"Sandi baru sudah di kirim ke alamat email $email"])
+                    return $this->response->setJSON(['message'=>"Maaf ada kesalahan pengiriman email ke $_email"])
                                 ->setStatusCode(500);
             }
 
@@ -87,8 +92,52 @@ class PenggunahotelController extends BaseController
             $pm = new PenggunahotelModel();
             $pm->select('id, nama, gender, email');
 
-            return (new Datateble( $pm ))
+            return (new Datatable( $pm ))
                     ->setFieldFilter(['nama', 'email', 'gender'])
                     ->draw();
+        }
+
+        public function show($id){
+            $r = (new PenggunahotelModel())->where('id', $id)->first();
+            if($r == null)throw PageNotFoundException::forPageNotFound();
+
+            return $this->response->setJSON($r);
+        }
+
+        public function store(){
+            $pm     = new PenggunahotelModel();
+            $sandi  = $this->request->getVar('sandi');
+
+            $id = $pm->insert([
+                'nama'       => $this->request->getVar('nama'),
+                'gender'     => $this->request->getVar('gender'),
+                'email'      => $this->request->getVar('email'),
+                'sandi'      => password_hash($sandi, PASSWORD_BCRYPT),
+            ]);
+            return $this->response->setJSON(['id' => $id])
+                        ->setStatusCode( intval($id) > 0 ? 200 : 406);
+        }
+
+        public function update(){
+            $pm     = new PenggunahotelModel();
+            $id     = (int)$this->request->getVar('id');
+
+            if( $pm->find($id) == null )
+                throw PageNotFoundException::forPageNotFound();
+
+            $hasil  = $pm->update($id, [
+                'nama'      => $this->request->getVar('nama'),
+                'gender'    => $this->request->getVar('gender'),
+                'email'     => $this->request->getVar('email'),
+            ]);
+
+            return $this->response->setJSON(['result'=>$hasil]);
+        }
+
+        public function delete(){
+            $pm     = new PenggunahotelModel();
+            $id     = $this->request->getVar('id');
+            $hasil  = $pm->delete($id);
+            return $this->response->setJSON(['resullt'  => $hasil]);
         }
 }
