@@ -19,8 +19,8 @@ class PenggunahotelTest extends CIUnitTestCase{
     }
 
     public function testCreateShowUpdateDelete(){
-        $json = $this->call( 'post', 'Pengguna', [
-            'nama'      => 'Testing nama',
+        $json = $this->call( 'post', 'penggunahotel', [
+            'nama_depan'      => 'Testing nama',
             'gender'    => 'L',
             'email'     => 'testing@gmail.com',
             'sandi'     => 'testing'
@@ -29,23 +29,23 @@ class PenggunahotelTest extends CIUnitTestCase{
        
         $this->assertTrue($js['id'] > 0);
 
-        $this->call('get', "Pengguna/" .$js['id'])
+        $this->call('get', "penggunahotel/" .$js['id'])
              ->assertStatus(200);
 
-        $this->call('patch', 'Pengguna', [
-            'nama'      => 'Testing pengguna update',
+        $this->call('patch', 'penggunahotel', [
+            'nama_depan'      => 'Testing pengguna update',
             'gender'    => 'L',
             'email'     => 'testingupdate@gmail.com',
             'id'        => $js['id']
         ])->assertStatus(200);
 
-        $this->call('dalete', 'Pengguna', [
+        $this->call('delete', 'penggunahotel', [
             'id'        => $js['id']
         ])->assertStatus(200);
     }    
         
     public function testRead(){
-        $this->call('get', 'Pengguna/all')
+        $this->call('get', 'penggunahotel/all')
              ->assertStatus(200);
     }
 
@@ -54,3 +54,4 @@ class PenggunahotelTest extends CIUnitTestCase{
              ->assertStatus(302);
     } 
 }
+

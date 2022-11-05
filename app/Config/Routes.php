@@ -41,20 +41,20 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->group('login', function(RouteCollection $routes){
-    $routes->get('lupa', 'Penggunacontroller::viewLupaPassword');
-    $routes->get('/', 'PenggunaController::viewLogin');
-    $routes->post('/', 'PenggunaController::login');
-    $routes->delete('/', 'PenggunaController::logout');
-    $routes->patch('/', 'PenggunaController::lupaPassword');
+    $routes->get('lupa', 'PenggunahotelController::viewLupaPassword');
+    $routes->get('/', 'PenggunahotelController::viewLogin');
+    $routes->post('/', 'PenggunahotelController::login');
+    $routes->delete('/', 'PenggunahotelController::logout');
+    $routes->patch('/', 'PenggunahotelController::lupaPassword');
 });
 
-$routes->group('Penggunahotel', function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->post('/', 'PenggunaController::store');
-    $routes->patch('/', 'PenggunaController::update');
-    $routes->delete('/', 'PenggunaController::delete');
-    $routes->get('(:num)', 'PenggunaController::show/$1');
-    $routes->get('all', 'PenggunaController::all');
+$routes->group('penggunahotel', function(RouteCollection $routes){
+    $routes->get('/', 'PenggunahotelController::index');
+    $routes->post('/', 'PenggunahotelController::store');
+    $routes->patch('/', 'PenggunahotelController::update');
+    $routes->delete('/', 'PenggunahotelController::delete');
+    $routes->get('(:num)', 'PenggunahotelController::show/$1');
+    $routes->get('all', 'PenggunahotelController::all');
 });
 
 /*
