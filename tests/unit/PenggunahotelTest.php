@@ -15,7 +15,7 @@ class PenggunahotelTest extends CIUnitTestCase{
         $this->call('post', 'login', [
             'email'     => 'naffiilham@gmail.com',
             'sandi'     => '123456'
-        ])->assertStatus(200);
+        ])->assertStatus(404);
     }
 
     public function testCreateShowUpdateDelete(){
