@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Session\Session;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -36,6 +37,11 @@ abstract class BaseController extends Controller
      * @var array
      */
     protected $helpers = [];
+
+    /**
+     *  @var Session
+     */
+    protected $session;
 
     /**
      * Constructor.
