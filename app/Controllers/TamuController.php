@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class PenggunahotelController extends BaseController
+class TamuController extends BaseController
 {
     public function index()
     {
