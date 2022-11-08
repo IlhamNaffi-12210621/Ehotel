@@ -21,11 +21,13 @@ class Kamartarif extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('kamartarif');
+        $this->forge->addForeignKey('kamartipe_id', 'Kamartipe', 'id', 'CASCADE', 'NO ACTION');
+        $this->forge->addForeignKey('tipetarif_id', 'tipetarif', 'id', 'CASCADE', 'NO ACTION');
+        $this->forge->createTable('Kamartarif');
     }
 
     public function down()
     {
-        $this->forge-droptable('kamartarif');
+        $this->forge->dropTable('Kamartarif');
     }
 }

@@ -11,7 +11,7 @@ class Metodebayar extends Migration
         $this->forge->addField([
             'id'    => ['type'=>'int', 'constraint'=>10, 'unsigned'=>true, 'auto_increment'=>true],
             'metode'    => ['type'=>'varchar', 'constraint'=>50, 'null'=>false],
-            'aktif'     => ['type'=>'enum("Y", "T")', 'null'=>true],
+            'aktif'     => ['type'=>'enum("Y", "T")', 'default'=>'Y', 'null'=>true],
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->createTable('metodebayar');

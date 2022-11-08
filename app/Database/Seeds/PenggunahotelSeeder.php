@@ -10,9 +10,9 @@ class PenggunahotelSeeder extends Seeder
 {
     public function run()
     {
-        $id = (new PenggunahotelModel())->insert([
-            'nama_depan'    => 'Administrator',
-            'nama_belakang' => 'Administrator',
+        $data = [
+            ['nama_depan'    => 'ilham',
+            'nama_belakang' => 'naffi',
             'gender'        => 'L',
             'alamat'        => 'Pontianak',
             'kota'          => 'Pontianak',
@@ -20,8 +20,8 @@ class PenggunahotelSeeder extends Seeder
             'notelp'        => '085845530771',
             'nohp'          => '082255332087',
             'email'         => 'naffiilham@gmail.com',
-            'sandi'         => password_hash('123456', PASSWORD_BCRYPT),
-        ]);
-        echo "hasil id = $id";
+            'sandi'         => password_hash('123456', PASSWORD_BCRYPT)],
+        ];
+        $this->db->table('penggunahotel')->insertBatch($data);
     }
 }
