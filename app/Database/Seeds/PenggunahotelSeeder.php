@@ -19,7 +19,7 @@ class PenggunahotelSeeder extends Seeder
             'tgl_lhr'       => '2003-08-11',
             'notelp'        => '085845530771',
             'nohp'          => '082255332087',
-            'email'         => 'naffiilham@gmail.com',
+            'email'         => 'retikadela@gmail.com',
             'sandi'         => password_hash('123456', PASSWORD_BCRYPT),
         ]);
         echo "hasil id = $id";
