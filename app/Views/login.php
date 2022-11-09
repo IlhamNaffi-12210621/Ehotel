@@ -22,7 +22,7 @@
         <h3>Login Sistem Ehotel</h3>
 
         <div class="row">
-          <div class="form-froup col-md-4">
+          <div class="form-froup md-5 col-5">
             <div class="mb-3">
               <label for="email" class="form-label">Alamat Email</label>
               <input type="email" name="email" class="form-control" id="email"
