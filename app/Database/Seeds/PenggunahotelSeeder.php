@@ -16,7 +16,7 @@ class PenggunahotelSeeder extends Seeder
             'gender'        => 'L',
             'alamat'        => 'Pontianak',
             'kota'          => 'Pontianak',
-            'tgl_lhr'       => '11-08-2003',
+            'tgl_lhr'       => '2003-08-11',
             'notelp'        => '085845530771',
             'nohp'          => '082255332087',
             'email'         => 'naffiilham@gmail.com',

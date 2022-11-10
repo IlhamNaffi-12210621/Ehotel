@@ -10,8 +10,9 @@ class PembayaranSeeder extends Seeder
     public function run()
     {
         (new PembayaranModel())->insert([
-            'tgl'             => '01-10-2022',
-            'tagihan'         => 'Rp.650.000',
+            'id'              => 2,
+            'tgl'             => '2022-10-03',
+            'tagihan'         => '650000',
             'dibayar'         => 'Rp.650.000',
             'nama_pembayar'   => 'reyhan',
             'metodebayar_id'  => 1,

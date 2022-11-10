@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Controllers\PenggunahotelController;
+use CodeIgniter\Router\RouteCollection;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -36,6 +39,23 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+$routes->group('login', function(RouteCollection $routes){
+    $routes->get('lupa', 'PenggunahotelController::viewLupaPassword');
+    $routes->get('/', 'PenggunahotelController::viewLogin');
+    $routes->post('/', 'PenggunahotelController::login');
+    $routes->delete('/', 'PenggunahotelController::logout');
+    $routes->patch('/', 'PenggunahotelController::lupaPassword');
+});
+
+$routes->group('penggunahotel', ['filter'=>'otentikasi'], function(RouteCollection $routes){
+    $routes->get('/', 'PenggunahotelController::index');
+    $routes->post('/', 'PenggunahotelController::store');
+    $routes->patch('/', 'PenggunahotelController::update');
+    $routes->delete('/', 'PenggunahotelController::delete');
+    $routes->get('(:num)', 'PenggunahotelController::show/$1');
+    $routes->get('all', 'PenggunahotelController::all');
+});
 
 /*
  * --------------------------------------------------------------------

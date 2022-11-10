@@ -20,6 +20,7 @@ class Pembayaran extends Migration
             'updated_at'        => [ 'type'=>'datetime', 'null'=>true ],
         ]);
         $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('id', 'kamarDipesan', 'id', 'cascade', 'restrict');
         $this->forge->createTable('pembayaran');
     }
 

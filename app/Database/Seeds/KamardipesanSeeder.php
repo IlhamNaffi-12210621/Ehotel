@@ -10,6 +10,7 @@ class KamardipesanSeeder extends Seeder
     public function run()
     {
         $r = (int)(new KamarDipesanModel())->insert([
+            'id' => 2,
             'pemesanan_id'  => 0,
             'kamar_id'      => 1,
             'tarif'         => 'Normal',
