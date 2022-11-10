@@ -26,7 +26,7 @@ class Tamu extends Migration
 
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('negara_id', 'negara', 'id', 'cascade', 'set null');
+        $this->forge->addForeignKey('negara_id', 'negara', 'id', 'CASCADE', 'NO ACTION');
         $this->forge->createTable('tamu');
     }
 

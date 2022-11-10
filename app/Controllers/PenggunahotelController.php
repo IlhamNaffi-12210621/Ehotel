@@ -38,7 +38,7 @@ class PenggunahotelController extends BaseController
     }
 
     public function viewLogin(){
-        return view('login');
+        return view('/backend/login');
     }
 
     public function lupaPassword(){

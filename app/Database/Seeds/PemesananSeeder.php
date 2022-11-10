@@ -11,8 +11,8 @@ class PemesananSeeder extends Seeder
     {
         $r = (int)(new PemesananModel())->insert([
             'kamar_id'          => 1,
-            'tgl_mulai'         => '01-10-2022',
-            'tgl_selesai'       => '03-10-2022',
+            'tgl_mulai'         => '2022-10-02',
+            'tgl_selesai'       => '2022-10-03',
             'pemesananstatus_id'=> 0,
             'tamu_id'           => 0,
 
