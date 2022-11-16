@@ -52,7 +52,7 @@
                                 <input type="date" name="tgl_selesai" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Pemesanan Status</label>
+                                <label class="form-label">Status Pemesanan</label>
                                 <input type="text" name="pemesananstatus_id" class="form-control">
                             </div>
                             <div class="mb-3">
