@@ -48,7 +48,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Aktif</label>
                                 <select name="aktif" class="form-control">
-                                    <option>Tipe Yang Dipilih</option>
+                                    <option>Tipe Yg Dipilih</option>
                                     <option value="Y">Aktif</option>
                                     <option value="T">Tidak Aktif</option>
                                 </select>
