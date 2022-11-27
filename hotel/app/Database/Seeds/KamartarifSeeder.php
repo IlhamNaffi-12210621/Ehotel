@@ -10,7 +10,7 @@ class KamartarifSeeder extends Seeder
     public function run()
     {
         $r = (new KamartarifModel())->insert([
-            'kamartipe_id' => '0',
+            'kamartipe_id' => '1',
             'tarif' => 1000000,
             'tgl_mulai' => '2022-01-05',
             'tgl_selesai' => '2022-01-07',

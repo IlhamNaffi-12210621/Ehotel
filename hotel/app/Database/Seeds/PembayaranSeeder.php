@@ -11,11 +11,11 @@ class PembayaranSeeder extends Seeder
     {
         $id = (new PembayaranModel())->insert([
             'tgl' => '2022-11-02',
-            'tagihan' => 'yang dibayar',
-            'dibayar' => 'lunas',
+            'tagihan' => '650000',
+            'dibayar' => '650000',
             'nama_pembayar' => 'Ilham',
             'metodebayar_id' => '1',
-            'pengguna_id' => '2',
+            'pengguna_id' => '1',
         ]);
         echo "hasil id = $id";
     }

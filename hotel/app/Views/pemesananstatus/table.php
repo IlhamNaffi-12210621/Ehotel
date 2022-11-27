@@ -34,7 +34,7 @@
                             <button class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="fromPemesanankita" method="post" action="<?=base_url('pemesananstatus') ?>">
+                            <form id="formPemesanankitaaja" method="post" action="<?=base_url('pemesananstatus') ?>">
                             <input type="hidden" name="id" />
                             <input type="hidden" name="_method" />
                             <div class="mb-3">
@@ -61,10 +61,11 @@
             </div>
 
 <script>
+
     $(document).ready(function(){
         
         
-        $('form#fromPemesanankita').submitAjax({
+        $('form#formPemesanankitaaja').submitAjax({
         pre:()=>{
             $('button#btn-menambahkan').hide();
         },
@@ -86,14 +87,14 @@
 
 
         $('button#btn-menambahkan').on('click' , function(){
-            $('form#fromPemesanankita').submit();
+            $('form#formPemesanankitaaja').submit();
 
         });
 
 
         $('button#btn-tambah').on('click' , function(){
             $('#modalForm').modal('show');
-            $('form#fromPemesanankita').trigger('reset');
+            $('form#formPemesanankitaaja').trigger('reset');
             $('input[name=_method]').val('');
         });
 

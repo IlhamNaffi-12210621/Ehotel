@@ -17,10 +17,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kamar ID</th>
-                            <th>Tanggal Mulai</th>
-                            <th>Tanggal Selesai</th>
-                            <th>Pemesanan Status ID</th>
+                            <th>Tanggal</th>
+                            <th>Tagihan</th>
+                            <th>Dibayar</th>
+                            <th>Nama Pembayaran</th>
+                            <th>Metode Bayar</th>
+                            <th>Pengguna</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
